@@ -23,7 +23,7 @@ function init() {
     mesh.rotation.x = - Math.PI / 2;
     scene.add( mesh );
   }
-  scene.children.reverse();
+  //scene.children.reverse();
   renderer = new THREE.WebGLRenderer();
   renderer.setPixelRatio( window.devicePixelRatio );
   renderer.setSize( window.innerWidth, window.innerHeight );
@@ -58,8 +58,8 @@ function animate() {
 }
 function render() {
   var time = Date.now() / 6000;
-  camera.position.x = 80 * Math.cos( time );
-  camera.position.z = 80 * Math.sin( time );
+//  camera.position.x = 80 * Math.cos( time );
+//  camera.position.z = 80 * Math.sin( time );
   camera.lookAt( scene.position );
   for ( var i = 0, l = scene.children.length; i < l; i ++ ) {
     var mesh = scene.children[ i ];
