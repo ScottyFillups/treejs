@@ -1,7 +1,10 @@
 module.exports = {
-  entry: './src/index.js',
+  entry: {
+    main: './src/index.js',
+    playground: './src/playground.js'
+  },
   output: {
-    filename: 'bundle.js',
+    filename: '[name].bundle.js',
     path: __dirname,
   },
   devtool: 'inline-source-map',
