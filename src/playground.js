@@ -3,7 +3,6 @@ var THREE = require('three')
 THREE.OrbitControls = require('three-orbit-controls')(THREE)
 THREE.Sky = require('./three-sky')
 
-
 var container;
 var camera, controls, scene, renderer;
 var sky, sunSphere;
