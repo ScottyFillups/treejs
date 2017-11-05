@@ -3,6 +3,7 @@ var THREE = require('three')
 THREE.OrbitControls = require('three-orbit-controls')(THREE)
 THREE.Sky = require('./three-sky')
 
+
 var container;
 var camera, controls, scene, renderer;
 var sky, sunSphere;
@@ -13,7 +14,7 @@ function initSky() {
   sky = new THREE.Sky();
   sky.scale.setScalar( 450000 );
   scene.add( sky );
-  
+
   // Add Sun Helper
   sunSphere = new THREE.Mesh(
     new THREE.SphereBufferGeometry( 20000, 16, 8 ),
@@ -22,7 +23,7 @@ function initSky() {
   sunSphere.position.y = - 700000;
   sunSphere.visible = false;
   scene.add( sunSphere );
-  
+
   // options
   var effectController  = {
     turbidity: 10,
@@ -56,6 +57,22 @@ function initSky() {
 function init() {
   camera = new THREE.PerspectiveCamera( 60, window.innerWidth / window.innerHeight, 100, 2000000 );
   camera.position.set( 0, 100, 2000 );
+
+  var listener = new THREE.AudioListener()
+  var sound = new THREE.Audio(listener)
+  var audioLoader = new THREE.AudioLoader()
+
+
+  camera.add(listener)
+
+  audioLoader.load('../assets/luvsic4.mp3', function( buffer ) {
+    sound.setBuffer( buffer )
+    sound.setLoop( true )
+    sound.setVolume( 0.5 )
+    sound.play()
+  })
+
+
   //camera.setLens(20);
   scene = new THREE.Scene();
   renderer = new THREE.WebGLRenderer();
