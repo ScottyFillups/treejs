@@ -82,10 +82,13 @@ function animate () {
   cube6.rotation.x += 0.01
   cube6.rotation.y += 0.03
   requestAnimationFrame(animate)
-//  camera.lookAt(scene.position)
-//  camera.rotation.x = 10 * Math.sin(time)
-//  camera.rotation.z = 15 * Math.cos(time)
   grassRender()
+  camera.position.x = Math.sin(time) * 300
+  camera.position.z = Math.cos(time) * 300
+  var focus = new THREE.Vector3(0, 100, 0)
+  camera.lookAt(focus)
+//  camera.rotation.x = 10 * Math.sin(time)
+//  camera.rotation.z = 15 * Math.cos(time
   renderer.render(scene, camera)
 }
 animate()
