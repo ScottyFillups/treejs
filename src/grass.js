@@ -43,7 +43,7 @@ function addGrass (scene) {
     for ( var i = 0; i < grassHeight; i ++ ) {
       var mesh = scene.children[ i ];
       mesh.position.x = Math.sin( time * 4 ) * i * i * 0.005;
-      mesh.position.z = Math.cos( time * 6 ) * i * i * 0.005;
+      //mesh.position.z = Math.cos( time * 6 ) * i * i * 0.005;
     }
   }
 
