@@ -21,7 +21,7 @@ function generateTexture() {
 }
 
 function addGrass (scene) {
-  var geometry = new THREE.PlaneBufferGeometry( 110, 110 );
+  var geometry = new THREE.PlaneBufferGeometry( 140, 140 );
   var texture = new THREE.CanvasTexture( generateTexture() );
   var grassMeshes = []
   var grassHeight = 20
@@ -48,7 +48,7 @@ function addGrass (scene) {
     for ( var i = 0; i < grassHeight; i ++ ) {
       var mesh = grassMeshes[ i ];
       mesh.position.x = Math.sin( time * 4 ) * i * i * 0.005;
-      mesh.position.z = Math.cos( time * 6 ) * i * i * 0.005;
+    //  mesh.position.z = Math.cos( time * 6 ) * i * i * 0.005;
     }
   }
   return grassRender

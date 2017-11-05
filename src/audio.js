@@ -1,6 +1,6 @@
 // given a camera and song path, adds listener to camera and plays song
 
-var THREE = require('THREE')
+var THREE = require('three')
 
 function playAudio (camera, path) {
   var listener = new THREE.AudioListener()
