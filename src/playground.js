@@ -1,3 +1,4 @@
+
 var THREE = require('three')
 
 var camera, scene, renderer;
@@ -6,7 +7,11 @@ animate();
 function init() {
   camera = new THREE.PerspectiveCamera( 60, window.innerWidth / window.innerHeight, 1, 1000 );
   camera.position.set( 0, 75, 100 );
+
+  fog = new THREE.Fog( 0x000000, -100, 1000 )
+
   scene = new THREE.Scene();
+//  scene.fog = fog
   scene.background = new THREE.Color( 0x003300 );
   var geometry = new THREE.PlaneBufferGeometry( 100, 100 );
   var texture = new THREE.CanvasTexture( generateTexture() );

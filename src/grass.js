@@ -21,9 +21,12 @@ function generateTexture() {
 }
 
 function addGrass (scene) {
-  var geometry = new THREE.PlaneBufferGeometry( 100, 100 );
+  var geometry = new THREE.PlaneBufferGeometry( 110, 110 );
   var texture = new THREE.CanvasTexture( generateTexture() );
+  var grassMeshes = []
   var grassHeight = 20
+
+  // create a single blade of grass by stacking 20 rotated planes
   for ( var i = 0; i < grassHeight; i ++ ) {
     var material = new THREE.MeshBasicMaterial( {
       color: new THREE.Color().setHSL( 0.3, 0.75, ( i / 15 ) * 0.4 + 0.1 ),
@@ -33,20 +36,21 @@ function addGrass (scene) {
       transparent: true
     } );
     var mesh = new THREE.Mesh( geometry, material );
+    grassMeshes.push(mesh)
     mesh.position.y = i * 0.25;
-    mesh.rotation.x = - Math.PI / 2;
+    mesh.rotation.x = -Math.PI / 2;
     scene.add( mesh );
   }
 
+  // for each blade of grass, make it spin
   function grassRender () {
     var time = Date.now() / 6000;
     for ( var i = 0; i < grassHeight; i ++ ) {
-      var mesh = scene.children[ i ];
+      var mesh = grassMeshes[ i ];
       mesh.position.x = Math.sin( time * 4 ) * i * i * 0.005;
-      //mesh.position.z = Math.cos( time * 6 ) * i * i * 0.005;
+      mesh.position.z = Math.cos( time * 6 ) * i * i * 0.005;
     }
   }
-
   return grassRender
 }
 
