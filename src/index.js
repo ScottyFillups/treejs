@@ -2,6 +2,7 @@ var THREE = require('three')
 var addGrass = require('./grass')
 var addGround = require('./ground')
 var addSky = require('./sky')
+var playAudio = require('./audio')
 
 var scene = new THREE.Scene()
 scene.background = new THREE.Color(0x6aa2fc)
@@ -20,6 +21,7 @@ cube.position.y += 20
 scene.add(cube)
 addGround(scene)
 addSky(scene)
+playAudio(camera, '../assets/vaporwave.mp3')
 var grassRender = addGrass(scene)
 
 function animate () {
