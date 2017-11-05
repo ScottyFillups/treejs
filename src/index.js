@@ -8,7 +8,7 @@ var playAudio = require('./audio')
 var scene = new THREE.Scene()
 scene.background = new THREE.Color(0x6aa2fc)
 var camera = new THREE.PerspectiveCamera( 60, window.innerWidth / window.innerHeight, 100, 2000000 );
-camera.position.set( 0, 100, 250 );
+camera.position.set( 0, 100, 500 );
 var renderer = new THREE.WebGLRenderer()
 renderer.setSize(window.innerWidth, window.innerHeight)
 document.body.appendChild(renderer.domElement)
@@ -65,6 +65,9 @@ addGround(scene)
 addSky(scene)
 addTree(scene)
 playAudio(camera, '../assets/summersday.mp3')
+var light = new THREE.AmbientLight( 0x404040 ); // soft white light
+//scene.add( light );
+
 var grassRender = addGrass(scene)
 
 function animate () {
