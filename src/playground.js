@@ -1,4 +1,5 @@
 var THREE = require('three')
+
 THREE.OrbitControls = require('three-orbit-controls')(THREE)
 THREE.Sky = require('./three-sky')
 
@@ -12,6 +13,7 @@ function initSky() {
   sky = new THREE.Sky();
   sky.scale.setScalar( 450000 );
   scene.add( sky );
+  
   // Add Sun Helper
   sunSphere = new THREE.Mesh(
     new THREE.SphereBufferGeometry( 20000, 16, 8 ),
@@ -20,7 +22,8 @@ function initSky() {
   sunSphere.position.y = - 700000;
   sunSphere.visible = false;
   scene.add( sunSphere );
-  /// GUI
+  
+  // options
   var effectController  = {
     turbidity: 10,
     rayleigh: 2,
@@ -48,15 +51,6 @@ function initSky() {
     uniforms.sunPosition.value.copy( sunSphere.position );
     renderer.render( scene, camera );
   }
-  /*var gui = new dat.GUI();
-  gui.add( effectController, "turbidity", 1.0, 20.0, 0.1 ).onChange( guiChanged );
-  gui.add( effectController, "rayleigh", 0.0, 4, 0.001 ).onChange( guiChanged );
-  gui.add( effectController, "mieCoefficient", 0.0, 0.1, 0.001 ).onChange( guiChanged );
-  gui.add( effectController, "mieDirectionalG", 0.0, 1, 0.001 ).onChange( guiChanged );
-  gui.add( effectController, "luminance", 0.0, 2 ).onChange( guiChanged );
-  gui.add( effectController, "inclination", 0, 1, 0.0001 ).onChange( guiChanged );
-  gui.add( effectController, "azimuth", 0, 1, 0.0001 ).onChange( guiChanged );
-  gui.add( effectController, "sun" ).onChange( guiChanged );*/
   guiChanged();
 }
 function init() {
@@ -64,8 +58,6 @@ function init() {
   camera.position.set( 0, 100, 2000 );
   //camera.setLens(20);
   scene = new THREE.Scene();
-  var helper = new THREE.GridHelper( 10000, 2, 0xffffff, 0xffffff );
-  scene.add( helper );
   renderer = new THREE.WebGLRenderer();
   renderer.setPixelRatio( window.devicePixelRatio );
   renderer.setSize( window.innerWidth, window.innerHeight );

@@ -1,11 +1,12 @@
 var THREE = require('three')
 var addGrass = require('./grass')
 var addGround = require('./ground')
+var addSky = require('./sky')
 
 var scene = new THREE.Scene()
 scene.background = new THREE.Color(0x6aa2fc)
-var camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 1, 1000)
-camera.position.set(0, 75, 200)
+var camera = new THREE.PerspectiveCamera( 60, window.innerWidth / window.innerHeight, 100, 2000000 );
+camera.position.set( 0, 100, 2000 );
 var renderer = new THREE.WebGLRenderer()
 renderer.setSize(window.innerWidth, window.innerHeight)
 document.body.appendChild(renderer.domElement)
@@ -18,6 +19,7 @@ cube.position.z = 0
 cube.position.y += 20
 scene.add(cube)
 addGround(scene)
+addSky(scene)
 var grassRender = addGrass(scene)
 
 function animate () {
