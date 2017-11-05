@@ -31,7 +31,7 @@ function addGrass (scene) {
     var material = new THREE.MeshBasicMaterial( {
       color: new THREE.Color().setHSL( 0.3, 0.75, ( i / 15 ) * 0.4 + 0.1 ),
       map: texture,
-      depthTest: false,
+      depthTest: true,
       depthWrite: false,
       transparent: true
     } );
