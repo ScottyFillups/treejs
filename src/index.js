@@ -21,7 +21,7 @@ cube.position.y += 20
 scene.add(cube)
 addGround(scene)
 addSky(scene)
-playAudio(camera, '../assets/vaporwave.mp3')
+playAudio(camera, '../assets/summersday.mp3')
 var grassRender = addGrass(scene)
 
 function animate () {
