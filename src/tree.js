@@ -26,7 +26,7 @@ function add_chunk(scene, cylinder){
   }
   // Chance to have a branch
   var r = Math.random();
-  if (r > (.6 + (cylinder.geometry.parameters.radiusTop)/15)){
+  if (r > (.5 + (cylinder.geometry.parameters.radiusTop)/15)){
     var b = generate_branch(cylinder)
     var rnd = Math.random() - .5
     var rnd2 = Math.random() - .5
