@@ -6,7 +6,7 @@ module.exports = {
   output: {
     filename: '[name].bundle.js',
     path: __dirname,
-    publicPath: '/treejs'
+    publicPath: '.'
   },
   devtool: 'inline-source-map',
   devServer: {
